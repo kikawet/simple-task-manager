@@ -24,7 +24,7 @@ const selectedRouteClasses = 'underline underline-offset-4 decoration-primary-70
           class="text-md font-semibold leading-6 text-textColor-900 my-auto"
           :to="route.path"
         >
-          {{ route.name }}
+          {{ route.msg }}
         </router-link>
       </section>
     </nav>
@@ -59,7 +59,7 @@ const selectedRouteClasses = 'underline underline-offset-4 decoration-primary-70
               class="text-md font-semibold leading-6 text-textColor-900 my-auto block"
               :to="route.path"
             >
-              {{ route.name }}
+              {{ route.msg }}
             </router-link>
           </div>
         </div>

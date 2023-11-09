@@ -1,14 +1,17 @@
 import MainLayout from '@/layouts/MainLayout.vue'
+import type { Route } from '@/model/Route'
 import { createRouter, createWebHistory } from 'vue-router'
 
-export const routes = {
-  Home: {
+export const routes: { [key: string]: Route } = {
+  List: {
     path: '/',
-    name: 'Home'
+    name: 'List',
+    msg: 'List tasks'
   },
-  About: {
-    path: '/about',
-    name: 'About'
+  Create: {
+    path: '/create',
+    name: 'Create',
+    msg: 'Create new task'
   }
 } as const
 
@@ -19,10 +22,10 @@ const router = createRouter({
       path: '/',
       component: MainLayout,
       children: [
-        { ...routes.Home, component: () => import('@/views/HomeView.vue') },
+        { ...routes.List, component: () => import('@/views/ListView.vue') },
         {
-          ...routes.About,
-          component: () => import('@/views/AboutView.vue')
+          ...routes.Create,
+          component: () => import('@/views/CreateView.vue')
         }
       ]
     },
