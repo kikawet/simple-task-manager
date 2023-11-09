@@ -66,7 +66,7 @@ const selectedRouteClasses = 'underline underline-offset-4 decoration-primary-70
       </div>
     </div>
   </header>
-  <main class="h-full">
+  <main class="h-full flex flex-col items-center gap-8">
     <router-view />
   </main>
 </template>

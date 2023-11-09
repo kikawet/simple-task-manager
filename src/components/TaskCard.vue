@@ -10,10 +10,7 @@ taskBGClass.set(TaskState.Pending, 'bg-red-400')
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'numeric',
-  day: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-  hour12: false
+  day: 'numeric'
 })
 </script>
 

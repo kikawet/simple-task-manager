@@ -9,8 +9,6 @@ const { tasks } = storeToRefs(taskStore)
 </script>
 
 <template>
-  <section class="flex flex-col items-center gap-8 h-full">
-    <h2 class="my-6 font-semibold leading-6 text-textColor-900 text-3xl">List of tasks</h2>
-    <TaskCard v-for="task in tasks" :key="task.id" v-bind="task" />
-  </section>
+  <h2 class="my-6 font-semibold leading-6 text-textColor-900 text-3xl">List of tasks</h2>
+  <TaskCard v-for="task in tasks" :key="task.id" v-bind="task" />
 </template>

@@ -11,7 +11,7 @@ export const routes: { [key: string]: Route } = {
   Create: {
     path: '/create',
     name: 'Create',
-    msg: 'Create new task'
+    msg: 'Create task'
   }
 } as const
 
