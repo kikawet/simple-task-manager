@@ -3,6 +3,7 @@ export interface Task {
   title: string
   description: string
   state: TaskState
+  due: Date
 }
 
 export enum TaskState {
