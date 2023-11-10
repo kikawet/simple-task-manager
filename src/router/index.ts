@@ -12,6 +12,11 @@ export const routes: { [key: string]: Route } = {
     path: '/create',
     name: 'Create',
     msg: 'Create task'
+  },
+  Update: {
+    path: '/update',
+    name: 'Update',
+    msg: 'Edit task'
   }
 } as const
 
@@ -26,6 +31,10 @@ const router = createRouter({
         {
           ...routes.Create,
           component: () => import('@/views/CreateView.vue')
+        },
+        {
+          ...routes.Update,
+          component: () => import('@/views/UpdateView.vue')
         }
       ]
     },
