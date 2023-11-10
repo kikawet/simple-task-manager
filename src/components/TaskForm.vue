@@ -39,7 +39,10 @@ watch(
     ])
 )
 
-const isTaskValid = computed(() => title.value.length >= 3 && isDateAfterToday(due.value))
+const minTitleLength = 3
+const isTaskValid = computed(
+  () => title.value.length >= minTitleLength && isDateAfterToday(due.value)
+)
 
 function submitForm() {
   emits('submit', {
@@ -74,7 +77,7 @@ const TaskStateKeys = Object.keys(TaskState)
           v-model="title"
         />
         <p class="mt-2 hidden peer-invalid:flex text-pink-600 text-sm">
-          Please provide a valid title.
+          Title length must be at least {{ minTitleLength }}.
         </p>
       </section>
       <section class="flex flex-col w-1/2">

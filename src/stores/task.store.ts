@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
 // This key will be used to store the ids of all the tasks in the system
+// An additional storage is required in case more data needs to be saved in the future
 const StorageIdsKey = 'ActiveTaskIds'
 // Used to retrieve all the ids from the localStorage
 function getIds(): string[] {

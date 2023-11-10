@@ -2,14 +2,12 @@
 import { TaskState } from '@/model/task.model'
 import { useTaskStore } from '@/stores/task.store'
 
-const taskStore = useTaskStore()
+const { getTasks } = useTaskStore()
 
-const { getTasks } = taskStore
-const taskBGClass = new Map<TaskState, string>()
-
-taskBGClass.set(TaskState.Completed, 'bg-green-400')
-taskBGClass.set(TaskState.Pending, 'bg-red-400')
-
+const taskBGClass = new Map<TaskState, string>([
+  [TaskState.Completed, 'bg-green-400'],
+  [TaskState.Pending, 'bg-red-400']
+])
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
   month: 'numeric',

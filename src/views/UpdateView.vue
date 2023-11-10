@@ -5,6 +5,7 @@ import TaskSearch from '@/components/TaskSearch.vue'
 import type { Task } from '@/model/task.model'
 import { useTaskStore } from '@/stores/task.store'
 import { nextTick, ref } from 'vue'
+
 const taskStore = useTaskStore()
 const task = ref<Task>() // The value of this ref will be set by the TaskSearch component
 
