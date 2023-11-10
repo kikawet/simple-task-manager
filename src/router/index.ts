@@ -32,7 +32,7 @@ const router = createRouter({
       path: '/',
       component: MainLayout,
       children: [
-        { ...routes.List, component: () => import('@/views/ListView.vue') },
+        { ...routes.List, component: () => import('@/views/TableView.vue') },
         {
           ...routes.Create,
           component: () => import('@/views/CreateView.vue')

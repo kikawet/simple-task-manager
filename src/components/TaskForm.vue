@@ -74,7 +74,7 @@ const TaskStateKeys = Object.keys(TaskState)
           minlength="3"
           v-model="title"
         />
-        <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
+        <p class="mt-2 hidden peer-invalid:flex text-pink-600 text-sm">
           Please provide a valid title.
         </p>
       </section>

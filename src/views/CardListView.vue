@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { TaskState, type Task } from '@/model/Task'
+import { TaskState } from '@/model/Task'
+import { useTaskStore } from '@/stores/task.store'
 
-const task = defineProps<Task>()
+const taskStore = useTaskStore()
+
+const { getTasks } = taskStore
 const taskBGClass = new Map<TaskState, string>()
 
 taskBGClass.set(TaskState.Completed, 'bg-green-400')
@@ -15,7 +18,13 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
 </script>
 
 <template>
-  <div class="flex items-start min-w-min w-5/6 gap-x-4 max-w-xl">
+  <h2 class="my-6 font-semibold leading-6 text-textColor-900 text-3xl">List of tasks</h2>
+  <div
+    v-for="task in getTasks()"
+    :key="task.id"
+    v-bind="task"
+    class="flex items-start min-w-min w-5/6 gap-x-4 max-w-xl"
+  >
     <div
       :class="taskBGClass.get(task.state)"
       class="flex shrink-0 w-20 h-20 justify-center items-center rounded-full"
