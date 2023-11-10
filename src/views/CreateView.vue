@@ -30,5 +30,5 @@ function submitCreation(task: Omit<Task, 'id'>) {
     This task will use the id <span class="font-bold">{{ nextId }}</span> and marked as
     <span class="font-bold text-red-400">{{ TaskState[TaskState.Pending] }}</span>
   </p>
-  <TaskForm @submit="submitCreation" title="" due="" description="" />
+  <TaskForm @submit="submitCreation" />
 </template>

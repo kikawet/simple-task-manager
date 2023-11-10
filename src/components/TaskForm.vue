@@ -48,6 +48,11 @@ function submitForm() {
     state: state.value ?? TaskState.Pending
   })
 }
+
+// We need to extract the keys as number because that is how the select works
+const TaskStateKeys = Object.keys(TaskState)
+  .map(Number)
+  .filter((key) => !isNaN(key))
 </script>
 
 <template>
@@ -83,6 +88,18 @@ function submitForm() {
           v-model="due"
         />
       </section>
+    </section>
+    <section v-if="state != undefined" class="flex flex-col w-5/6 sm:w-2/3">
+      <label for="state" class="text-md font-medium leading-6 text-textColor-900">State</label>
+      <select
+        id="state"
+        v-model="state"
+        class="rounded-md p-1.5 text-textColor-900 shadow-sm ring-1 ring-inset ring-primary-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 leading-6"
+      >
+        <option v-for="key in TaskStateKeys" :key="key" :value="key">
+          {{ TaskState[key] }}
+        </option>
+      </select>
     </section>
     <section class="flex flex-col w-5/6 sm:w-2/3">
       <label for="description" class="text-md font-medium leading-6 text-textColor-900"
