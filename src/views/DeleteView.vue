@@ -11,12 +11,11 @@ const task = ref<Task>() // The value of this ref will be set by the TaskSearch 
 
 const submitionCompleted = ref<boolean>(false)
 function submitDelete() {
-  if (task.value == undefined || !confirm(`Are you sure you want to delete task ${task.value.id}`))
-    return
+  if (task.value == undefined) return
+
   submitionCompleted.value = false
 
   taskStore.deleteTask(task.value.id)
-
   task.value = undefined
 
   nextTick(() => (submitionCompleted.value = true))

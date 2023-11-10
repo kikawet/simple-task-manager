@@ -2,6 +2,7 @@
 import type { Task } from '@/model/task.model'
 import { useTaskStore } from '@/stores/task.store'
 import { ref, watch } from 'vue'
+
 const emits = defineEmits<{
   find: [task: Task]
 }>()
