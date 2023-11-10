@@ -1,4 +1,4 @@
-import { type Task } from '@/model/Task'
+import type { Task } from '@/model/task.model'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 

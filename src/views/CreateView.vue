@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NotificationComponent from '@/components/NotificationComponent.vue'
 import TaskForm from '@/components/TaskForm.vue'
-import { TaskState, type Task } from '@/model/Task'
+import { TaskState, type Task } from '@/model/task.model'
 import { useTaskStore } from '@/stores/task.store'
 import { storeToRefs } from 'pinia'
 import { nextTick, ref } from 'vue'

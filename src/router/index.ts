@@ -1,5 +1,5 @@
 import MainLayout from '@/layouts/MainLayout.vue'
-import type { Route } from '@/model/Route'
+import type { Route } from '@/model/route.model'
 import { createRouter, createWebHistory } from 'vue-router'
 
 export const routes: { [key: string]: Route } = {

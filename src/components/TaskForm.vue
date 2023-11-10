@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TaskState, type Task } from '@/model/Task'
+import { TaskState, type Task } from '@/model/task.model'
 import { computed, ref, watch } from 'vue'
 
 const props = withDefaults(

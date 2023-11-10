@@ -2,7 +2,7 @@
 import NotificationComponent from '@/components/NotificationComponent.vue'
 import TaskForm from '@/components/TaskForm.vue'
 import TaskSearch from '@/components/TaskSearch.vue'
-import type { Task } from '@/model/Task'
+import type { Task } from '@/model/task.model'
 import { useTaskStore } from '@/stores/task.store'
 import { nextTick, ref } from 'vue'
 

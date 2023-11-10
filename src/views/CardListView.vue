@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TaskState } from '@/model/Task'
+import { TaskState } from '@/model/task.model'
 import { useTaskStore } from '@/stores/task.store'
 
 const taskStore = useTaskStore()
