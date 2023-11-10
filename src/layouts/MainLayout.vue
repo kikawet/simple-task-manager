@@ -15,13 +15,13 @@ const selectedRouteClasses = 'underline underline-offset-4 decoration-primary-70
   <header class="mx-auto flex justify-around p-6 lg:px-8 rounded shadow-lg">
     <TitleHeader />
     <nav class="gap-3 flex justify-between ml-auto sm:ml-0">
-      <IconBurguerMenu class="flex sm:hidden" @click="menuOpen = true" />
-      <section class="hidden sm:flex gap-3">
+      <IconBurguerMenu class="flex md:hidden" @click="menuOpen = true" />
+      <section class="hidden md:flex gap-2 divide-x-2 lg:divide-x-0">
         <router-link
           v-for="route in routes"
           :key="route.path"
           :class="currentRoute.path === route.path ? selectedRouteClasses : ''"
-          class="text-md font-semibold leading-6 text-textColor-900 my-auto"
+          class="text-md font-semibold leading-6 text-textColor-900 my-auto shrink-0 pl-2"
           :to="route.path"
         >
           {{ route.msg }}
@@ -30,7 +30,7 @@ const selectedRouteClasses = 'underline underline-offset-4 decoration-primary-70
     </nav>
     <div
       :class="menuOpen ? '' : 'hidden'"
-      class="sm:hidden fixed inset-y-0 right-0 z-10 w-full bg-background px-6 py-6 max-w-md ring-1 ring-textColor-900/10"
+      class="md:hidden fixed inset-y-0 right-0 z-10 w-full bg-background px-6 py-6 max-w-md ring-1 ring-textColor-900/10"
       @click="menuOpen = false"
     >
       <div class="flex items-center justify-between p-6 m-0 rounded shadow-lg">

@@ -16,7 +16,7 @@ function getIds(): string[] {
 
 function loadLastId(): number {
   const ids = getIds().map(Number)
-  return Math.max(...ids)
+  return Math.max(...ids, 0)
 }
 // Update all the ids in the localStorage
 function setIds(ids: string[]): void {
@@ -55,5 +55,11 @@ export const useTaskStore = defineStore('task', () => {
   function updateTask(task: Task): void {
     localStorage.setItem(task.id, JSON.stringify(task))
   }
-  return { getTasks, nextId, addTask, findTask, updateTask }
+
+  function deleteTask(idTask: Task['id']): void {
+    localStorage.removeItem(idTask)
+    const ids = getIds()
+    setIds(ids.filter((id) => id != idTask))
+  }
+  return { nextId, getTasks, addTask, findTask, updateTask, deleteTask }
 })

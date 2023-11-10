@@ -6,13 +6,15 @@ const props = withDefaults(
   defineProps<
     Omit<Task, 'id' | 'due'> & {
       due: string // due is a string since the input only works in this format
+      disabled: boolean
     }
   >(),
   {
     title: '',
-    due: new Date().toISOString(),
+    due: '',
     description: '',
-    state: undefined
+    state: undefined,
+    disabled: false
   }
 )
 
@@ -68,6 +70,7 @@ const TaskStateKeys = Object.keys(TaskState)
           name="title"
           type="text"
           autocomplete="off"
+          :disabled="disabled"
           minlength="3"
           v-model="title"
         />
@@ -84,6 +87,7 @@ const TaskStateKeys = Object.keys(TaskState)
           id="duedate"
           name="due"
           type="date"
+          :disabled="disabled"
           :min="extractDateDays(new Date().toISOString())"
           v-model="due"
         />
@@ -93,6 +97,7 @@ const TaskStateKeys = Object.keys(TaskState)
       <label for="state" class="text-md font-medium leading-6 text-textColor-900">State</label>
       <select
         id="state"
+        :disabled="disabled"
         v-model="state"
         class="rounded-md p-1.5 text-textColor-900 shadow-sm ring-1 ring-inset ring-primary-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 leading-6"
       >
@@ -109,6 +114,7 @@ const TaskStateKeys = Object.keys(TaskState)
         class="shadow-sm rounded-md text-textColor-900 p-1.5 ring-1 ring-inset ring-textColor-300 focus:ring-2 focus:ring-inset focus:ring-primary-600"
         id="description"
         rows="4"
+        :disabled="disabled"
         v-model="description"
       />
     </section>
@@ -117,7 +123,7 @@ const TaskStateKeys = Object.keys(TaskState)
       type="submit"
       :disabled="!isTaskValid"
     >
-      Save
+      {{ disabled ? 'Confirm' : 'Save' }}
     </button>
   </form>
 </template>
