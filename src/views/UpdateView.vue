@@ -36,5 +36,5 @@ function submitUpdate(updatedTask: Omit<Task, 'id'>) {
   </p>
   <TaskSearch @find="(t: Task) => (task = t)" />
 
-  <TaskForm v-if="task" @submit="submitUpdate" v-bind="task" :due="task.due.toISOString()" />
+  <TaskForm v-if="task" @submit="submitUpdate" v-bind="task" />
 </template>

@@ -4,14 +4,13 @@ import { computed, ref, watch } from 'vue'
 
 const props = withDefaults(
   defineProps<
-    Omit<Task, 'id' | 'due'> & {
-      due: string // due is a string since the input only works in this format
+    Omit<Task, 'id'> & {
       disabled: boolean
     }
   >(),
   {
     title: '',
-    due: '',
+    due: undefined,
     description: '',
     state: undefined,
     disabled: false
@@ -24,7 +23,7 @@ const emits = defineEmits<{
 
 const [title, due, description, state] = [
   ref(props.title),
-  ref(extractDateDays(props.due)),
+  ref(extractDateDays(props.due?.toISOString())), // due ref is a string since the input only works in this format
   ref(props.description),
   ref(props.state)
 ]
@@ -34,7 +33,7 @@ watch(
   () =>
     ([title.value, due.value, description.value, state.value] = [
       props.title,
-      extractDateDays(props.due),
+      extractDateDays(props.due?.toISOString()),
       props.description,
       props.state
     ])
@@ -134,6 +133,6 @@ function isDateAfterToday(date: string) {
 }
 
 function extractDateDays(date: string): string {
-  return date.split('T')[0]
+  return date?.split('T')[0]
 }
 </script>

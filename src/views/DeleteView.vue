@@ -37,11 +37,5 @@ function submitDelete() {
   </p>
   <TaskSearch @find="(t: Task) => (task = t)" />
 
-  <TaskForm
-    v-if="task"
-    @submit="submitDelete"
-    v-bind="task"
-    :due="task.due.toISOString()"
-    disabled
-  />
+  <TaskForm v-if="task" @submit="submitDelete" v-bind="task" disabled />
 </template>
