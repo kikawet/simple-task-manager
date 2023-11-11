@@ -6,6 +6,7 @@ const props = withDefaults(
   defineProps<
     Omit<Task, 'id'> & {
       disabled: boolean
+      minTitleLength: number
     }
   >(),
   {
@@ -13,7 +14,8 @@ const props = withDefaults(
     due: undefined,
     description: '',
     state: undefined,
-    disabled: false
+    disabled: false,
+    minTitleLength: 3
   }
 )
 
@@ -39,9 +41,8 @@ watch(
     ])
 )
 
-const minTitleLength = 3
 const isTaskValid = computed(
-  () => title.value.length >= minTitleLength && isDateAfterToday(due.value)
+  () => title.value.length >= props.minTitleLength && isDateAfterToday(due.value)
 )
 
 function submitForm() {

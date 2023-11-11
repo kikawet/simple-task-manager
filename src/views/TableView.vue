@@ -4,16 +4,25 @@ import { useTaskStore } from '@/stores/task.store'
 
 const { getTasks } = useTaskStore()
 
-const taskBGClass = new Map<TaskState, string>([
-  [TaskState.Completed, 'bg-green-400'],
-  [TaskState.Pending, 'bg-red-400']
-])
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: 'numeric',
-  day: 'numeric'
-})
+withDefaults(
+  defineProps<{
+    taskBGClass: Map<TaskState, string>
+    dateFormatter: Intl.DateTimeFormat
+  }>(),
+  {
+    taskBGClass: () =>
+      new Map<TaskState, string>([
+        [TaskState.Completed, 'bg-green-400'],
+        [TaskState.Pending, 'bg-red-400']
+      ]),
+    dateFormatter: () =>
+      new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+      })
+  }
+)
 </script>
 
 <template>
